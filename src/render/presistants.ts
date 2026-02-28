@@ -1,4 +1,4 @@
-fetch("../components/buttons.html")
+fetch(".../components/buttons.html")
   .then((res) => res.text())
   .then((html) => {
     document.querySelectorAll("[data-text]").forEach((container) => {
@@ -11,7 +11,7 @@ fetch("../components/buttons.html")
     });
   });
 
-fetch("../components/otrioBoard.fragment")
+fetch(".../components/otrioBoard.fragment")
   .then((res: Response) => res.text())
   .then((html: string) => {
     document.querySelectorAll("[data-size]").forEach((board) => {
@@ -44,3 +44,4 @@ fetch("../components/otrioBoard.fragment")
       }
     });
   });
+
