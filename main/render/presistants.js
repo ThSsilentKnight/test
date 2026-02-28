@@ -1,5 +1,5 @@
 "use strict";
-fetch(".../components/buttons.html")
+fetch("./components/buttons.html")
     .then((res) => res.text())
     .then((html) => {
     document.querySelectorAll("[data-text]").forEach((container) => {
@@ -10,7 +10,7 @@ fetch(".../components/buttons.html")
         }
     });
 });
-fetch(".../components/otrioBoard.fragment")
+fetch("./components/otrioBoard.fragment")
     .then((res) => res.text())
     .then((html) => {
     document.querySelectorAll("[data-size]").forEach((board) => {
