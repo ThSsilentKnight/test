@@ -1,0 +1,534 @@
+/* Desktop View*/
+@media (min-width: 600px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .modal {
+        backdrop-filter: blur(5px);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 200ms ease-in-out;
+        border: 2.5px solid rgba(0, 0, 0, 0.8);
+        border-radius: 1rem;
+        z-index: 10;
+        background-color: rgba(0, 0, 5, 0.8);
+        width: 450px;
+        min-height: 250px;
+        max-width: 80%;
+    }
+
+    .waitingForStart {
+        backdrop-filter: blur(5px);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 200ms ease-in-out;
+        border: 2.5px solid rgba(0, 0, 0, 0.8);
+        border-radius: 1rem;
+        z-index: 10;
+        background-color: rgba(0, 00, 5, 0.8);
+        width: 650px;
+        min-height: 450px;
+        max-width: 80%;
+    }
+
+    .modal.active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .modalHeader {
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .modalHeader .modalTitle {
+        font-size: 1px;
+        display: flex;
+        flex-direction: row;
+        font-size: 1.5rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .modalHeader .modalCloseButton {
+        margin-left: auto;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background: none;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .modalHeader .modalCloseButton1 {
+        margin-left: auto;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background: none;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .modalContents {
+        display: grid;
+        gap: 12px;
+        justify-content: space-around;
+        justify-items: center;
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+    .modalContents.mc2 {
+        display: grid;
+        gap: 20px;
+        justify-content: space-around;
+        justify-items: center;
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+    .loader {
+        display: flex;
+        align-items: center;
+    }
+
+    .bar {
+        display: inline-block;
+        width: 5px;
+        height: 30px;
+        background-color: rgba(255, 255, 255, .5);
+        border-radius: 10px;
+        animation: scale-up4 1s linear infinite;
+    }
+
+    .bar:nth-child(2) {
+        height: 45px;
+        margin: 0 5px;
+        animation-delay: .25s;
+    }
+
+    .bar:nth-child(3) {
+        animation-delay: .5s;
+    }
+
+    #overlay {
+        position: fixed;
+        opacity: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+    }
+
+    #overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .pageLayout {
+        height: 530px;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 0.5fr;
+        gap: 2.5rem;
+        padding: 1.5rem 4rem;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .boardPanel {
+        background-color: #333;
+        border-radius: 8px;
+        margin: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .actionPanel {
+        background-color: #333;
+        border-radius: 8px;
+        margin: 0.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.5rem;
+
+    }
+
+    .dynamicWarnings {
+        opacity: 0;
+        position: fixed;
+        pointer-events: none;
+        z-index: 100;
+    }
+
+    .dynamicWarnings.active {
+        z-index: 100;
+        position: fixed;
+        opacity: 1;
+        animation: floatUpFade 1500ms ease-out forwards;
+    }
+
+    .cellContainer {
+        background-color: #222;
+        border-radius: 8px;
+        margin: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+    .cell {
+        position: relative;
+        width: 85px;
+        height: 85px;
+        border-radius: .8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cell::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 3px solid var(--ring-color);
+        border-radius: 0.5rem;
+        opacity: 0.65;
+        mask:
+            linear-gradient(#000 0 0) top left / 25px 25px no-repeat,
+            linear-gradient(#000 0 0) top right / 25px 25px no-repeat,
+            linear-gradient(#000 0 0) bottom left / 25px 25px no-repeat,
+            linear-gradient(#000 0 0) bottom right / 25px 25px no-repeat;
+        -webkit-mask:
+            linear-gradient(#000 0 0) top left / 25px 25px no-repeat,
+            linear-gradient(#000 0 0) top right / 25px 25px no-repeat,
+            linear-gradient(#000 0 0) bottom left / 25px 25px no-repeat,
+            linear-gradient(#000 0 0) bottom right / 25px 25px no-repeat;
+    }
+
+    .cell:hover::before {
+        opacity: 1;
+        cursor: grab;
+        border-width: 4px;
+    }
+
+    .dragging.shrink {
+        transform: scale(0.1);
+    }
+
+    .cell:active {
+        background-color: rgb(0, 0, 0, 0.9);
+    }
+
+    .informationContainer {
+        background-color: #222;
+        border-radius: 8px;
+        display: grid;
+        grid-template-rows: 0.3fr 0.35fr 1fr 0.35fr;
+        gap: 1rem;
+    }
+
+    .infoTitle {
+        grid-row: 1;
+        margin: 0.5rem;
+        background-color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .infoTitle h4 {
+        font-size: 1.1rem;
+        margin: 0;
+        color: #fff;
+    }
+
+    .infoTime {
+        grid-row: 2;
+        margin: -0.5rem 0.5rem 0.5rem 0.5rem;
+        background-color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .roomCode {
+        align-self: center;
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .codeContainer {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        background-color: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .codeContainer::before {
+        content: var(--room-code);
+    }
+
+    .infoColor {
+        grid-row: 3;
+        margin: -0.5rem 0.5rem 0.5rem 0.5rem;
+        background-color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        display: grid;
+        grid-template-rows: 0.5fr 1fr;
+        gap: 1rem;
+    }
+
+    .infoExitGame {
+        grid-row: 4;
+        margin: -0.5rem 0.5rem 0.5rem 0.5rem;
+        background-color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .exitGameButton {
+        width: 100%;
+        padding: 0.9rem 0;
+        display: flex;
+
+        align-content: center;
+        justify-content: center;
+
+        background: linear-gradient(145deg, #2c2f36, #272a32);
+        color: #9aa0a6;
+
+        border: solid rgba(255, 255, 255, 0.05) 3px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        box-shadow: 2.5px 5px 0.5px rgba(0, 0, 10, 0.67), -1.5px -1.5px 0px rgba(20, 20, 20, 0.8);
+    }
+
+    .exitGameButton:hover {
+        position: relative;
+        transform: translate(2.5px, -2.5px);
+    }
+
+    .gameContainer {
+        background-color: #222;
+        border-radius: 8px;
+        grid-template-rows: 1fr 0.35fr;
+        display: grid;
+    }
+
+    .playerInfoContainer {
+        background-color: #222;
+        display: grid;
+        gap: 1rem;
+        border-radius: 8px;
+        width: 320px;
+        grid-template-rows: 0.5fr 1fr 1fr 1fr;
+    }
+
+    .playerInfoTitle {
+        grid-row: 1;
+        margin: 0.5rem;
+        background-color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .playerInfoTitle h4 {
+        font-size: 1.1rem;
+        margin: 0;
+        color: #fff;
+    }
+
+    .dummy {
+        pointer-events: none;
+    }
+
+    .otrioBoardInPlay {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        background-color: #232323;
+        width: max-content;
+        border-radius: 6%;
+        padding: 2.5px;
+        box-shadow: 5.5px 5.5px 0.2px rgba(0, 10, 0, 0.67);
+
+        grid-row: 3 /-1;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .profileOne {
+        grid-row: 2;
+        margin: -0.5rem 0.5rem 0.5rem 0.5rem;
+        background-color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        display: grid;
+        grid-template-rows: 0.75fr 1fr;
+        grid-template-columns: 0.25fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .profileTwo {
+        grid-row: 3;
+        margin: -0.5rem 0.5rem 0.5rem 0.5rem;
+        background-color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        display: grid;
+        grid-template-rows: 0.75fr 1fr;
+        grid-template-columns: 0.25fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .profileThree {
+        grid-row: 4;
+        margin: -0.5rem 0.5rem 0.5rem 0.5rem;
+        background-color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        display: grid;
+        grid-template-rows: 0.75fr 1fr;
+        grid-template-columns: 0.25fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .playerIcon {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        background-color: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .playerNameTag {
+        width: 100%;
+        height: 100%;
+        background-color: #222;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .playerRingDisplay {
+        width: 100%;
+        height: 100%;
+        background-color: #222;
+        border-radius: 8px;
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.25rem;
+    }
+
+    .ringContainer .otrioCell {
+        width: calc(100% - 15px);
+        height: calc(100% - 10px);
+
+    }
+
+    .ringContainer {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .timeContainer {
+        width: 100%;
+        height: 100%;
+        background-color: #222;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .nextPlayerContainer {
+        width: 100%;
+        height: 100%;
+        background-color: #222;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .timeElapsedTitle {
+        font-size: x-small;
+    }
+}
+
+
+/* Mobile View */
+@media (max-width: 600px) {
+    .pageLayout {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+        background: #222;
+    }
+}
+
+.highlightBorder svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.highlightBorder rect {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-dasharray: 0.12 0.9;
+    animation: runBorder 2.5s linear infinite;
+}

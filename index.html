@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnO Menu</title>
+    <link rel="stylesheet" href="./animations.css">
+    <link rel="stylesheet" href="./globalStyles.css">
+    <link rel="stylesheet" href="./menuStyles.css">
+    <script type="module" src="./main/index.js"></script>
+</head>
+
+<body>
+    <div class="spacer section1">
+        <div class="container">
+            <div class="welcomeContainer">
+                <h3>Welcome To Online Otrio</h3>
+            </div>
+            <div class="titleBox">
+                <h1 class="title main">Otrio</h1>
+                <h2 class="title sub">Online</h2>
+            </div>
+            <div class="buttonBox">
+                <div data-modal-target="#hostSettingsModal" data-text="Host Game"></div>
+                <div data-modal-target="#codeModal" data-text="Join Game"></div>
+                <div id="bots" data-text="Play Bots"></div>
+            </div>
+            <div class="modal modal2" id="codeModal">
+                <div class="modalHeader">
+                    <div class="modalTitle">Enter Code</div>
+                    <button class="modalCloseButton" data-close-button>&times;</button>
+                </div>
+
+                <div class="modalContents mc2">
+                    <input type="text" placeholder="Game Code" class="roomId" id="roomId" maxlength="6" minlength="4">
+                    <input type="text" placeholder="Username" class="username" id="username" maxlength="12"
+                        minlength="1">
+                    <div data-text="Join" class="join" id="join"></div>
+                </div>
+            </div>
+
+
+            <div class="modal modal1" id="hostSettingsModal">
+                <div class="modalHeader">
+                    <div class="modalTitle">Game Creation</div>
+                    <button class="modalCloseButton" data-close-button>&times;</button>
+                </div>
+
+                <div class="modalContents mc1">
+                    <input type="text" placeholder="Username" class="username" id="username" maxlength="12"
+                        minlength="1">
+
+                    <div id="host" data-text="Host"></div>
+                </div>
+            </div>
+            <div id="overlay"></div>
+
+        </div>
+    </div>
+
+    <div class="spacer section2">
+        <div class="ruleText">
+            <h1> - How to win -</h1>
+        </div>
+
+        <div class="rulesContainer">
+            <div class="fullCard">
+                <div class="miniCard">
+                    <h4 class="preHeader">Same size line:</h4>
+                </div>
+
+                <div class="card">
+                    <div class="cardText">
+                        <p>Place three rings of the same size in a row.</p>
+                    </div>
+                    <div class="dash"></div>
+                    <div class="otrioBoard 1" data-size="60" data-values="2 5 8"></div>
+                </div>
+            </div>
+            <div class="fullCard">
+                <div class="miniCard">
+                    <h4 class="preHeader">Mixed size line:</h4>
+                </div>
+
+                <div class="card">
+                    <div class="cardText">
+                        <p>Place three small, medium, and large rings in a row.</p>
+                    </div>
+                    <div class="dash"></div>
+                    <div class="otrioBoard 2" data-size="60" data-values="2 4 6"></div>
+                </div>
+            </div>
+
+            <div class="fullCard">
+                <div class="miniCard">
+                    <h4 class="preHeader">Concentric stack:</h4>
+                </div>
+
+                <div class="card">
+                    <div class="cardText">
+                        <p>Stack three small, medium, and large rings in one space.</p>
+                    </div>
+                    <div class="dash"></div>
+                    <div class="otrioBoard 3" data-size="60" data-values="14 13 12"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

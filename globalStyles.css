@@ -1,0 +1,202 @@
+@font-face {
+    font-family: Bungee;
+    src: url(./Bungee-Regular.ttf);
+}
+
+/* Desktop View*/
+@media (min-width: 600px) {
+}
+
+/* Mobile View */
+@media (max-width: 600px) {}
+
+/* global View*/
+body {
+    display: grid;
+    margin: 0;
+    font-family: bungee;
+    color: white;
+    background-color: rgb(0, 0, 30);
+    text-shadow: 2.5px 2.5px 0px rgba(0, 10, 0, 0.67);
+}
+
+p {
+    font-size: 0.8rem;
+}
+
+button {
+    font-family: bungee;
+    color: white;
+    margin-left: auto;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* From Uiverse.io by mobinkakei */
+.cta {
+    display: flex;
+    padding: 10px 45px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+
+    background: linear-gradient(135deg, #0dbaea 0%, #0aa3cf 50%, #067fa3 100%);
+
+    border: 1.5px solid #0dbaea;
+
+    transition: 0.5s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
+    cursor: pointer;
+    font-family: Bungee;
+
+    text-shadow:
+        2.5px 2.5px 0px rgba(0, 10, 0, 0.67);
+}
+
+.cta:hover {
+    box-shadow: 12px 12px 0 #15dc5b;
+    border-color: #15dcb4;
+}
+
+.cta:focus {
+    outline: none;
+}
+
+.cta .second {
+    transition: 0.5s;
+    margin-right: 0px;
+}
+
+.cta:hover .second {
+    transition: 0.5s;
+    margin-right: 45px;
+}
+
+.label {
+    transform: skewX(15deg);
+}
+
+.second {
+    width: 20px;
+    margin-left: 30px;
+    position: relative;
+    top: 12%;
+}
+
+.one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+.two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.cta:hover .three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover .one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover .two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+.otrioBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: #232323;
+    width: max-content;
+    border-radius: 6%;
+    padding: 2.5px;
+    box-shadow: 5.5px 5.5px 0.2px rgba(0, 10, 0, 0.67);
+
+    grid-row: 3 /-1;
+    align-self: center;
+    justify-self: center;
+}
+
+.ring {
+    fill: none;
+    stroke: #4b5351;
+    cursor: pointer;
+}
+
+.ring.hover {
+    fill: none;
+    stroke: var(--ring-color);
+    cursor: pointer;
+    opacity: 0.7;
+    stroke-width: 14;
+}
+
+.ring1 {
+    stroke-width: 12.5;
+}
+
+.ring1.hover {
+    stroke-width: 15;
+}
+
+.ring2 {
+    stroke-width: 11.5;
+}
+
+.ring3 {
+    stroke-width: 10.5;
+}
+
+.centerHitBox {
+    fill: #00ffbf8f;
+    stroke: #00ffbf8f;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.centerHitBox:hover {
+    fill: #717676;
+    stroke: #717676;
+}
+
+/*.highlightBorder {
+    position: relative;
+}
+
+.highlightBorder svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.highlightBorder rect {
+    fill: none;
+    stroke: #00eaff;
+    stroke-width: 6;
+    stroke-linecap: round;
+
+    /* segment length as % of perimeter 
+    stroke-dasharray: 0.12 1;
+    animation: runBorder 2s linear infinite;
+}
+
+@keyframes runBorder {
+    from { stroke-dashoffset: 0; }
+    to   { stroke-dashoffset: -1; }
+}
+*/

@@ -1,0 +1,125 @@
+@keyframes color_anim {
+    0% {
+        fill: white;
+    }
+
+    50% {
+        fill: #15dc5b;
+    }
+
+    100% {
+        fill: white;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes runBorder {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -1;
+    }
+}
+
+@keyframes fadeRing {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+}
+
+@keyframes floatUpFade {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+        color: red;
+    }
+
+    70% {
+        color: white;
+    }
+
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+        color: white;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(-8px, -2px);
+    }
+
+    20% {
+        transform: translate(8px, 2px);
+    }
+
+    30% {
+        transform: translate(-6px, -3px);
+    }
+
+    40% {
+        transform: translate(6px, 3px);
+    }
+
+    50% {
+        transform: translate(-4px, -2px);
+    }
+
+    60% {
+        transform: translate(4px, 2px);
+    }
+
+    70% {
+        transform: translate(-3px, -1px);
+    }
+
+    80% {
+        transform: translate(3px, 1px);
+    }
+
+    90% {
+        transform: translate(-1px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.shake {
+    animation: shake 800ms ease-in-out;
+}
+
+@keyframes scale-up4 {
+    20% {
+        background-color: #ffff;
+        transform: scaleY(1.5);
+    }
+
+    40% {
+        transform: scaleY(1);
+    }
+}

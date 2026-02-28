@@ -1,0 +1,21 @@
+{
+  "name": "online-otrio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main/app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThSsilentKnight/OnO-Client.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ThSsilentKnight/OnO-Client/issues"
+  },
+  "homepage": "https://github.com/ThSsilentKnight/On-Client#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

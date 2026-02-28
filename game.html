@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnO Board</title>
+    <link rel="stylesheet" href="./animations.css">
+    <link rel="stylesheet" href="./globalStyles.css">
+    <link rel="stylesheet" href="./gameStyles.css">
+    <script type="module" src="./main/index.js" defer></script>
+</head>
+
+<body>
+    <div class="pageLayout">
+
+        <div class="informationContainer">
+            <div class="infoTitle">
+                <h4>Game Information</h4>
+            </div>
+            <div class="infoTime">
+                <div>Room Code</div>
+                <div class="codeContainer">
+                    <span class="roomCode" id="roomCode"></span>
+                </div>
+
+            </div>
+            <div class="infoColor">
+                <div class="timeContainer">
+                    <div class="timeElapsedTitle">Time Elapsed</div>
+                    <div class="timeElapsed">0</div>
+
+                </div>
+                <div class="nextPlayerContainer">
+
+                </div>
+
+                <div class="modal waitingForStart active" id="waitingForStart">
+                    <div class="modalHeader">
+                        <div class="modalTitle">
+                            <h5>Game Not Started</h5>
+                        </div>
+                        <button class="modalCloseButton" data-close-button>&times;</button>
+                    </div>
+
+                    <div class="modalContents mc2">
+                        <p>Waiting For Host To Start Game</p>
+                        <span class="roomCode" id="roomCode">Room Code</span>
+                        <div class="codeContainer"></div>
+                        <div class="loader">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                        <div class="exitGameButton" id="exitGameButton"><span class="exitGameLabel">Exit Game </span>
+                        </div>
+                        <div id="startBtn" data-text="start"></div>
+                    </div>
+                </div>
+                <div class="deny active" id="overlay"></div>
+            </div>
+            <div class="infoExitGame">
+                <div class="exitGameButton" id="exitGameButton">
+                    <span class="exitGameLabel">Exit Game</span>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="gameContainer" id="gameContainer" draggable="false">
+            <div class="boardPanel">
+                <div class="dynamicWarnings"></div>
+
+                <div class="otrioBoardInPlay" data-size="110">
+
+                    <svg class="otrioCell" viewBox="0 0 120 120">
+                        <circle class="ring ring1" cx="60" cy="60" r="48" id="2" />
+                        <circle class="ring ring2" cx="60" cy="60" r="32" id="1" />
+                        <circle class="ring ring3" cx="60" cy="60" r="16" id="0" />
+                        <rect class="centerHitBox" x="27" y="27" width="65" height="65" rx="5" />
+                    </svg>
+
+                    <svg class="otrioCell" viewBox="0 0 120 120">
+                        <circle class="ring ring1" cx="60" cy="60" r="48" id="5" />
+                        <circle class="ring ring2" cx="60" cy="60" r="32" id="4" />
+                        <circle class="ring ring3" cx="60" cy="60" r="16" id="3" />
+                        <rect class="centerHitBox" x="27" y="27" width="65" height="65" rx="5" />
+                    </svg>
+
+                    <svg class="otrioCell" viewBox="0 0 120 120">
+                        <circle class="ring ring1" cx="60" cy="60" r="48" id="8" />
+                        <circle class="ring ring2" cx="60" cy="60" r="32" id="7" />
+                        <circle class="ring ring3" cx="60" cy="60" r="16" id="6" />
+                        <rect class="centerHitBox" x="27" y="27" width="65" height="65" rx="5" />
+                    </svg>
+
+                    <svg class="otrioCell" viewBox="0 0 120 120">
+                        <circle class="ring ring1" cx="60" cy="60" r="48" id="11" />
+                        <circle class="ring ring2" cx="60" cy="60" r="32" id="10" />
+                        <circle class="ring ring3" cx="60" cy="60" r="16" id="9" />
+                        <rect class="centerHitBox" x="27" y="27" width="65" height="65" rx="5" />
+                    </svg>
+
+                    <svg class="otrioCell" viewBox="0 0 120 120">
+                        <circle class="ring ring1" cx="60" cy="60" r="48" id="14" />
+                        <circle class="ring ring2" cx="60" cy="60" r="32" id="13" />
+                        <circle class="ring ring3" cx="60" cy="60" r="16" id="12" />
+                        <rect class="centerHitBox" x="27" y="27" width="65" height="65" rx="5" />
+                    </svg>
+
+                    <svg class="otrioCell" viewBox="0 0 120 120">
+                        <circle class="ring ring1" cx="60" cy="60" r="48" id="17" />
+                        <circle class="ring ring2" cx="60" cy="60" r="32" id="16" />
+                        <circle class="ring ring3" cx="60" cy="60" r="16" id="15" />
+                        <rect class="centerHitBox" x="27" y="27" width="65" height="65" rx="5" />
+                    </svg>
+
+                    <svg class="otrioCell" viewBox="0 0 120 120">
+                        <circle class="ring ring1" cx="60" cy="60" r="48" id="20" />
+                        <circle class="ring ring2" cx="60" cy="60" r="32" id="19" />
+                        <circle class="ring ring3" cx="60" cy="60" r="16" id="18" />
+                        <rect class="centerHitBox" x="27" y="27" width="65" height="65" rx="5" />
+                    </svg>
+
+                    <svg class="otrioCell" viewBox="0 0 120 120">
+                        <circle class="ring ring1" cx="60" cy="60" r="48" id="23" />
+                        <circle class="ring ring2" cx="60" cy="60" r="32" id="22" />
+                        <circle class="ring ring3" cx="60" cy="60" r="16" id="21" />
+                        <rect class="centerHitBox" x="27" y="27" width="65" height="65" rx="5" />
+                    </svg>
+
+                    <svg class="otrioCell" viewBox="0 0 120 120">
+                        <circle class="ring ring1" cx="60" cy="60" r="48" id="26" />
+                        <circle class="ring ring2" cx="60" cy="60" r="32" id="25" />
+                        <circle class="ring ring3" cx="60" cy="60" r="16" id="24" />
+                        <rect class="centerHitBox" x="27" y="27" width="65" height="65" rx="5" />
+                    </svg>
+                </div>
+            </div>
+            <div class="actionPanel" draggable="false">
+                <div class="cellContainer" draggable="false">
+                    <div class="cell" id="large">
+                        <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                            <circle class="ring ring1" cx="60" cy="60" r="48" id="2" />
+                        </svg>
+                    </div>
+                    <div class="largeCellCount">3x</div>
+                </div>
+                <div class="cellContainer" draggable="false">
+                    <div class="cell" id="medium">
+                        <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                            <circle class="ring ring2" cx="60" cy="60" r="32" id="1" />
+                        </svg>
+                    </div>
+                    <div class="mediumCellCount">3x</div>
+                </div>
+                <div class="cellContainer" draggable="false">
+
+                    <div class="cell" id="small">
+                        <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                            <circle class="ring ring3" cx="60" cy="60" r="16" id="0" />
+                        </svg>
+                    </div>
+                    <div class="smallCellCount">3x</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="playerInfoContainer">
+            <div class="playerInfoTitle">
+                <h4>Players in Game</h4>
+            </div>
+
+            <div class="profileOne profile">
+                <div class="playerIcon">
+                    <svg class="profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                        class="size-4">
+                        <path
+                            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                    </svg>
+                    <!-- TODO Change these colors dynamically-->
+
+                </div>
+                <div class="playerNameTag">
+                    <div class="usernameContainer">Player 1</div>
+                </div>
+
+                <div class="playerRingDisplay">
+                    <div class="ringContainer">
+                        <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                            <circle class="ring ring1" cx="60" cy="60" r="46" id="2" />
+                        </svg>
+                        3x
+                    </div>
+                    <div class="ringContainer">
+                        <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                            <circle class="ring ring2" cx="60" cy="60" r="30" id="1" />
+                        </svg>
+                        3x
+                    </div>
+                    <div class="ringContainer">
+                        <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                            <circle class="ring ring3" cx="60" cy="60" r="14" id="0" />
+                        </svg>
+                        3x
+                    </div>
+
+                </div>
+            </div>
+            <div class="profileTwo profile">
+                <div class="playerIcon">
+                    <svg class="profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                        class="size-4">
+                        <path
+                            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                    </svg>
+                </div>
+                <div class="playerNameTag">
+                    <div class="usernameContainer">Player 2</div>
+                </div>
+                <div class="playerRingDisplay">
+                    <div class="playerRingDisplay">
+                        <div class="ringContainer">
+                            <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                                <circle class="ring ring1" cx="60" cy="60" r="46" id="2" />
+                            </svg>
+                            3x
+                        </div>
+                        <div class="ringContainer">
+                            <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                                <circle class="ring ring2" cx="60" cy="60" r="30" id="1" />
+                            </svg>
+                            3x
+                        </div>
+                        <div class="ringContainer">
+                            <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                                <circle class="ring ring3" cx="60" cy="60" r="14" id="0" />
+                            </svg>
+                            3x
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profileThree profile">
+                <div class="playerIcon">
+                    <svg class="profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                        class="size-4">
+                        <path
+                            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                    </svg>
+                </div>
+                <div class="playerNameTag">
+                    <div class="usernameContainer">Player 3</div>
+                </div>
+                <div class="playerRingDisplay">
+                    <div class="ringContainer">
+                        <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                            <circle class="ring ring1" cx="60" cy="60" r="46" id="2" />
+                        </svg>
+                        3x
+                    </div>
+                    <div class="ringContainer">
+                        <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                            <circle class="ring ring2" cx="60" cy="60" r="30" id="1" />
+                        </svg>
+                        3x
+                    </div>
+                    <div class="ringContainer">
+                        <svg class="otrioCell dummy" viewBox="0 0 120 120" draggable="false">
+                            <circle class="ring ring3" cx="60" cy="60" r="14" id="0" />
+                        </svg>
+                        3x
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal gameEnded" id="gameEnded">
+            <div class="modalHeader">
+                <div class="modalTitle">
+                    <h5>The Game Ended!</h5>
+                </div>
+                <button class="modalCloseButton" data-close-button>1</button>
+            </div>
+
+            <div class="modalContents mc3">
+                <div class="gameWinInfo"></div>
+                <div class="loader">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <div class="exitGameButton" id="exitGameButton"><span class="exitGameLabel">Exit Game </span>
+                </div>
+
+            </div>
+        </div>
+        <div class="deny" id="overlay"></div>
+</body>
+
+</html>
