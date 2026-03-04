@@ -1,8 +1,9 @@
 import { timer } from "../ui/dom.js";
 import { closeModal, colorConversion, displayWarning, gameTimer, getClientId, getGameData, getRoomId, mapPlayerVisuals, openModal, regenerateBoard, } from "../utils/helpers.js";
 import { requestClientRoomInfo, requestRejoinRoom, requestWinCheck, } from "./requests.js";
-//export const ws = new WebSocket(`wss://ono-server-production.up.railway.app`);
-export const ws = new WebSocket("ws://localhost:8080");
+export const ws = new WebSocket(`wss://api.silentknightssh.com`);
+console.log("Opened");
+//export const ws = new WebSocket("ws://localhost:8080");
 ws.addEventListener("open", async () => {
     const data = sessionStorage.getItem("gameData");
     localStorage.clear();
