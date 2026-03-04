@@ -18,7 +18,7 @@ import {
 } from "./requests.js";
 
 export const ws = new WebSocket(`wss://api.silentknightssh.com`);
-
+console.log("Opened");
 //export const ws = new WebSocket("ws://localhost:8080");
 
 ws.addEventListener("open", async () => {
@@ -196,4 +196,5 @@ ws.addEventListener("message", async (event) => {
       console.warn("Unknown action:", request.action);
   }
 });
+
 
