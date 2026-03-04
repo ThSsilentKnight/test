@@ -17,9 +17,9 @@ import {
   requestWinCheck,
 } from "./requests.js";
 
-//export const ws = new WebSocket(`wss://ono-server-production.up.railway.app`);
+export const ws = new WebSocket(`wss://api.silentknightssh.com`);
 
-export const ws = new WebSocket("ws://localhost:8080");
+//export const ws = new WebSocket("ws://localhost:8080");
 
 ws.addEventListener("open", async () => {
   const data = sessionStorage.getItem("gameData");
@@ -196,3 +196,4 @@ ws.addEventListener("message", async (event) => {
       console.warn("Unknown action:", request.action);
   }
 });
+
